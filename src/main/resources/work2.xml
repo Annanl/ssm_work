@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+	<context:component-scan base-package="work2.com.zut" />
+	<bean id = "car2" class = "work2.com.zut.enity.Car">
+		<property name="brand" value="丰田"></property>
+		<property name="color" value="红色"></property>
+		<property name="displacement" value="1.5l"></property>
+	</bean>
+	<bean id = "boss2" class = "work2.com.zut.enity.Boss">
+		<property name = "name" value = "老板二"></property>
+		<property name = "company" value = "老板二有限管理公司"></property>
+		<property name = "ownCar" ref = "car2"></property>
+		<property name = "hobby" value = "高尔夫球"></property>
+	</bean>
+	<bean id = "meeting" class = "work2.com.zut.enity.Meeting">
+		<property name = "item" value = "关于打球的问题"></property>
+		<property name = "bossList">
+			<list>
+				<ref bean = "boss1" />
+				<ref bean = "boss2" />
+			</list>
+		</property>
+	</bean>
+</beans>
